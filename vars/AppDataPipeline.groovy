@@ -24,7 +24,7 @@ class AppDataPipeline {
      * Método para construir y ejecutar el pipeline.
      * Este método define las etapas y pasos del pipeline.
      */
-    def exec() {
+    def pipeline() {
         pipeline {
             agent any
 
