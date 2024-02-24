@@ -1,10 +1,11 @@
+import SonarScanner
+
 /**
  * Clase para definir un pipeline de Jenkins para escanear un proyecto de aplicación.
  * Este pipeline utiliza SonarScanner para realizar el análisis estático del código.
  * @jcescobarn 
  * @version 1.0
  */
-import SonnarScanner
 
 class AppDataPipeline {
 
