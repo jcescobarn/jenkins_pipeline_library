@@ -4,7 +4,7 @@
  * @jcescobarn 
  * @version 1.0
  */
-import ../shared.SonnarScanner
+import SonnarScanner
 
 class AppDataPipeline {
 
@@ -23,7 +23,7 @@ class AppDataPipeline {
      * Método para construir y ejecutar el pipeline.
      * Este método define las etapas y pasos del pipeline.
      */
-    def build() {
+    def exec() {
         pipeline {
             agent any
 

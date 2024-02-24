@@ -6,7 +6,6 @@ import groovy.transform.CompileStatic
  * @author jcescobarn
  * @version 1.0
  */
-@CompileStatic
 class SonarScanner {
 
     /**
