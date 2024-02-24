@@ -5,7 +5,6 @@ import groovy.transform.CompileStatic
  * Esta clase proporciona métodos para gestionar el escaneo de una aplicación en SonarQube con SonarScanner.
  * @author jcescobarn
  * @version 1.0
- * @since Fecha o versión en la que se introdujo la clase
  */
 @CompileStatic
 class SonarScanner {
