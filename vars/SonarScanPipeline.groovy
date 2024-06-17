@@ -12,11 +12,13 @@ def call(Map params = [:]) {
             stage('Scan Project') {
                 steps {
                     script {
-                        SonnarScanner.scanApplication(
-                            projectKey: params.projectKey,
-                            projectName: params.projectName,
-                            sourcePath: params.sourcePath
-                        )
+                        def scannerHome = tool "SonarQube Scanner";
+                        withSonarQubeEnv('SonarQube') {
+                            sh "${scannerHome}/bin/sonar-scanner"+
+                            " -Dsonar.projectKey=${params.projectKey}"+
+                            " -Dsonar.projectName=${params.projectName}"+
+                            " -Dsonar.sources=${params.sourcePath}"
+                        }
                     }
                 }
             }
