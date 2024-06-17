@@ -8,19 +8,20 @@ def call(Map params = [:]) {
             string(name: 'sourcePath', defaultValue: '.', description: 'Source path of the project')
         }
 
-        stages {
-            stage('Scan Project') {
-                steps {
-                    script {
-                        withSonarQubeEnv('SonarServer') {
-                            sh "${scannerHome}/bin/sonar-scanner"+
-                            " -Dsonar.projectKey=${params.projectKey}"+
-                            " -Dsonar.projectName=${params.projectName}"+
-                            " -Dsonar.sources=${params.sourcePath}"
-                        }
+    stages {
+        stage('SonarQube Scan') {
+            steps {
+                script{
+                    def scannerHome = tool 'SonarScanner'
+                    withSonarQubeEnv('SonarServer') {
+                        sh "${scannerHome}/bin/sonar-scanner"+
+                        " -Dsonar.projectKey=${params.projectKey}"+
+                        " -Dsonar.projectName=${params.projectName}"+
+                        " -Dsonar.sources=${params.sourcePath}"
                     }
                 }
             }
         }
+    }
     }
 }
